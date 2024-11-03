@@ -13,3 +13,4 @@ postgres = "0.19"  # PostgreSQL database connector
 diesel = { version = "2.0.3", features = ["postgres", "r2d2"] }  # ORM for PostgreSQL
 tantivy = "0.17"  # Fast full-text search library
 solana-client = "1.14"  # Solana RPC client library
+dotenv = "0.15"
