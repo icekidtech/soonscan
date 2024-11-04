@@ -4,13 +4,14 @@ version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rocket = "0.5"  # Web framework for API
-serde = { version = "1.0", features = ["derive"] }  # Data serialization
-serde_json = "1.0"  # JSON handling
-tokio = { version = "1", features = ["full"] }  # Asynchronous runtime
-reqwest = "0.11"  # For HTTP requests (to fetch data from RPC endpoints)
-postgres = "0.19"  # PostgreSQL database connector
-diesel = { version = "2.0.3", features = ["postgres", "r2d2"] }  # ORM for PostgreSQL
-tantivy = "0.17"  # Fast full-text search library
-solana-client = "1.14"  # Solana RPC client library
-dotenv = "0.15"
+axum = "0.7"
+tokio = { version = "1.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+tower-http = { version = "0.5", features = ["cors"] }
+solana-sdk = "1.17"
+solana-client = "1.17"
+solana-program = "1.17"
+anyhow = "1.0"
+tracing = "0.1"
+tracing-subscriber = "0.3"
