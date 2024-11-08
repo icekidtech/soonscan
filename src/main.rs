@@ -7,7 +7,7 @@ pub struct Block {
     pub index: u64,
     pub previous_hash: String,
     pub timestamp: String,
-    pub transactions: Vec<Transaction>,
+    pub transactions: Vec<Transaction>, // Specify the type of Vec
     pub hash: String,
 }
 
@@ -18,14 +18,14 @@ pub struct Transaction {
     pub amount: f64,
 }
 
-// Function to fetch blockchain data from the SOON network
-async fn fetch_blockchain_data(url: &str) -> Result<Vec<Block>, Error> {
-    let response = reqwest::get(url).await?.json::<Vec<Block>>().await?;
+// Function to fetch blockchain data from the specified network
+async fn fetch_blockchain_data(url: &str) -> Result<Vec<Block>, Error> { // Specify Vec<Block>
+    let response = reqwest::get(url).await?.json::<Vec<Block>>().await?; // Specify Vec<Block>
     Ok(response)
 }
 
 // Function to display the fetched blockchain data
-fn display_blocks(blocks: &Vec<Block>) {
+fn display_blocks(blocks: &Vec<Block>) { // Specify the type of Vec<Block>
     for block in blocks {
         println!("Block Index: {}", block.index);
         println!("Previous Hash: {}", block.previous_hash);
@@ -54,7 +54,7 @@ fn validate_block_transactions(block: &Block) -> bool {
 // Main function to run the explorer
 #[tokio::main]
 async fn main() {
-    let url = "https://explorer.solana.com/address/Hm4BnUnY6H6qLend3YxjWG3XFr4jJiaNPH2UC7fgXGNB?cluster=testnet"; // Replace with the actual SOON network URL
+    let url = "https://api.testnet.solana.com"; // Replace with the actual SOON network URL
     match fetch_blockchain_data(url).await {
         Ok(blocks) => {
             display_blocks(&blocks); // Pass a reference to blocks
