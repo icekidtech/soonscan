@@ -1,0 +1,21 @@
+[package]
+name = "transaction_validator_program"       # Name of the Solana program
+version = "0.1.0"                            # Version of the program
+edition = "2018"                             # Rust edition
+
+# Solana programs use dynamic linking by default
+[lib]
+crate-type = ["cdylib"]                      # Required for building Solana programs
+
+[dependencies]
+borsh = "0.10.3"                             # Borsh serialization library
+borsh-derive = "0.10.3"                      # Derive macros for Borsh
+solana-program = "1.10.32"                   # Solana program library for on-chain development
+
+[features]
+default = ["no-entrypoint"]                  # Optional: exclude the entrypoint for tests
+
+[profile.release]
+opt-level = "z"                              # Optimize for binary size
+
+[workspace]
