@@ -1,1 +1,5 @@
-/target
+src/blockchain/target
+src/blockchain/dist/
+src/backend/.env
+src/backend/node_modules/
+src/frontend/node_modules/

@@ -12,7 +12,7 @@ app.use(bodyParser.json());
 app.post('/api/validate-transaction', async (req, res) => {
     const { sender, recipient, amount } = req.body;
     try {
-        const signature = await validateTransaction(sender, recipient, amount, YOUR_PROGRAM_ID);
+        const signature = await validateTransaction(sender, recipient, amount, PROGRAM_ID);
         res.json({ message: 'Transaction validated', signature });
     } catch (error) {
         res.status(500).json({ error: error.message });
